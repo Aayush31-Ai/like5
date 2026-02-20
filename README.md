@@ -1,16 +1,83 @@
-# React + Vite
+# ELI5 Bot 🧠
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An AI chatbot powered by **Groq** that explains everything as if you're 5 years old — simple words, fun analogies, and lots of emojis!
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🤖 Explains any topic in super simple terms
+- 💬 Full chat history with a clean UI
+- ⚡ Powered by Groq's blazing-fast inference API
+- 🔑 No backend — runs entirely in the browser using the OpenAI-compatible SDK
+- ⌨️ Press `Enter` to send, `Shift+Enter` for a new line
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- [React 19](https://react.dev/) + [Vite](https://vitejs.dev/)
+- [OpenAI SDK](https://www.npmjs.com/package/openai) (pointed at Groq's API)
+- [Groq API](https://console.groq.com/) — model: `openai/gpt-oss-20b`
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 1. Clone the repo
+
+```bash
+git clone <your-repo-url>
+cd like5
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Set up your API key
+
+Create a `.env` file in the root directory:
+
+```env
+VITE_GROK_API_KEY=your_groq_api_key_here
+```
+
+Get your free API key at [console.groq.com](https://console.groq.com/).
+
+### 4. Run the dev server
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+## Build for Production
+
+```bash
+npm run build
+npm run preview
+```
+
+## Project Structure
+
+```
+like5/
+├── public/
+├── src/
+│   ├── App.jsx       # Main chatbot component
+│   ├── App.css       # Chatbot styles
+│   ├── main.jsx      # React entry point
+│   └── index.css     # Global styles
+├── .env              # API key (not committed to git)
+├── .gitignore
+├── index.html
+├── package.json
+├── requirements.txt
+└── vite.config.js
+```
+
+## Environment Variables
+
+| Variable | Description |
+|---|---|
+| `VITE_GROK_API_KEY` | Your Groq API key (get it from [console.groq.com](https://console.groq.com/)) |
+
+> **Note:** Never commit your `.env` file. It is already added to `.gitignore`.
